@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "module": "commonjs",
+    "target": "es6",
+    "types": ["node", "express", "cors"],
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceMap": true,                     // Enables source map generation for debugging
+    "noImplicitAny": true,                 // Disallows variables with implicit 'any' type
+    "strictNullChecks": true,              // Ensures strict null checks
+    "strictFunctionTypes": true,           // Ensures strict checking of function types
+    "strictBindCallApply": true,           // Ensures strict 'bind', 'call', and 'apply' methods
+    "noImplicitThis": true,                // Disallows 'this' with an implicit 'any' type
+    "alwaysStrict": true,                  // Ensures 'use strict' is emitted in each file
+    "resolveJsonModule": true,             // Allows importing JSON files
+    "skipLibCheck": true,                  // Skips type checking of all declaration files
+    "forceConsistentCasingInFileNames": true, // Disallows inconsistently-cased references to the same file
+    "moduleResolution": "node",            // Module resolution strategy
+    "allowSyntheticDefaultImports": true,  // Allows default imports from modules with no default export
+    "lib": ["es6", "dom"],                 // Specifies library files to be included in the compilation
+    "typeRoots": ["./node_modules/@types"],// List of folders to include type definitions
+    "baseUrl": ".",                        // Base directory to resolve non-relative module names
+    "paths": {                             // Aliases for module paths
+      "@models/*": ["models/*"],
+      "@controllers/*": ["controllers/*"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "include": ["./*.ts"],                   // Specifies the files to include in the compilation
+  "exclude": ["node_modules", "build"]     // Specifies the files to exclude from the compilation
+}
