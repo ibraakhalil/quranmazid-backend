@@ -34,16 +34,6 @@ router.get('/user', async (req, res) => {
 
 router.get('/wbw', async (req, res, next) => {
   try {
-    //         const wbwData = await WBW.findAll({
-    //     where: { sura: 2 },
-    //     attributes: [
-    //         'ayah',
-    //         [Sequelize.literal(`json_group_array(json_object('id', id, 'uthmani', uthmani, 'indopak', indopak))`), 'words']
-    //     ],
-    //     group: ["ayah"],
-    //     order: [['ayah', 'ASC']]
-    // });
-
     const wbwData = await sequelize.query(
       `SELECT ayah, json_group_array(
               json_object(
@@ -71,6 +61,7 @@ router.get('/wbw', async (req, res, next) => {
 });
 
 type QueryType = { text?: string; page?: string; translations?: string };
+
 router.get('/search', async (req, res, next) => {
   const { translations = 'en' } = req.query as QueryType;
 
@@ -103,8 +94,6 @@ WHERE
 GROUP BY
     wbw.sura, wbw.ayah
 LIMIT 10;
-
-
 `);
 
     res.json(searchData);
